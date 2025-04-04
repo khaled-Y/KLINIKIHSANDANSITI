@@ -1,1026 +1,479 @@
+
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SereneCare Clinic | Your Trusted Family Healthcare in Seremban</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            scroll-behavior: smooth;
-        }
-        
-        .chinese-font {
-            font-family: 'Noto Sans SC', sans-serif;
-        }
-        
-        .hero-gradient {
-            background: linear-gradient(135deg, rgba(56, 182, 255, 0.8) 0%, rgba(54, 144, 211, 0.9) 100%);
-        }
-        
-        .floating-buttons {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 100;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        
-        .testimonial-card {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-        }
-        
-        .map-container {
-            overflow: hidden;
-            padding-bottom: 56.25%;
-            position: relative;
-            height: 0;
-        }
-        
-        .map-container iframe {
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 100%;
-            position: absolute;
-        }
-        
-        .nav-link {
-            position: relative;
-        }
-        
-        .nav-link:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background-color: #38b6ff;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover:after {
-            width: 100%;
-        }
-        
-        .language-selector {
-            position: relative;
-        }
-        
-        .language-dropdown {
-            display: none;
-            position: absolute;
-            right: 0;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            z-index: 100;
-            min-width: 120px;
-            transition: all 0.3s ease;
-        }
-        
-        .language-selector:hover .language-dropdown,
-        .language-selector:focus-within .language-dropdown {
-            display: block;
-        }
-        
-        .language-option {
-            padding: 8px 16px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            transition: background-color 0.2s;
-        }
-        
-        .language-option:hover {
-            background: #f0f7ff;
-        }
-        
-        .language-flag {
-            width: 20px;
-            height: 15px;
-            margin-right: 8px;
-            object-fit: cover;
-        }
-        
-        .active-language {
-            font-weight: 600;
-            color: #38b6ff;
-        }
-        
-        /* Mobile menu animation */
-        .mobile-menu {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-        }
-        
-        .mobile-menu.active {
-            max-height: 500px;
-            transition: max-height 0.5s ease-in;
-        }
-    </style>
+    <title>Sofra Clinic - Modern Family Doctor in Alor Gajah, Melaka | Open Daily 8 AM - 11 PM</title>
+
+<!-- Google Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+    /* CSS Variables */
+    :root {
+        --primary-color: #800080; /* Purple */
+        --secondary-color: #6a006a; /* Darker Purple */
+        --light-gray: #f8f9fa; /* Very light gray */
+        --medium-gray: #e9ecef; /* Slightly darker gray */
+        --dark-text: #343a40; /* Dark gray for text */
+        --white: #ffffff;
+        --border-radius: 8px; /* Consistent rounded corners */
+        --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    }
+
+    /* Global Styles */
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        line-height: 1.7;
+        color: var(--dark-text);
+        background-color: var(--white);
+    }
+
+    /* Container */
+    .container {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* Typography */
+    h1, h2, h3 {
+        font-weight: 600;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+    }
+    
+    h1 { font-size: 2.8rem; line-height: 1.3; }
+    h2 { font-size: 2rem; margin-bottom: 2.5rem; text-align: center;}
+    p { margin-bottom: 1rem; color: #555; }
+
+    /* Sections */
+    section {
+        padding: 60px 0;
+    }
+    section:nth-child(even) { /* Alternating background colors */
+         background-color: var(--light-gray);
+    }
+
+    /* Hero Section */
+    .hero {
+        /* Optional background image can be added here */
+        background-color: var(--primary-color); 
+        color: var(--white);
+        padding: 60px 0; /* Reduced padding slightly */
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column; /* Stack logo and text */
+    }
+    
+    .hero-logo img {
+         max-height: 80px; /* Adjust size as needed */
+         margin-bottom: 25px;
+    }
+
+    .hero h1 {
+        color: var(--white);
+        font-size: 2.6rem; /* Adjusted size */
+        font-weight: 700;
+        margin-bottom: 0.8rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem; /* Adjusted size */
+        color: rgba(255, 255, 255, 0.9);
+        max-width: 700px;
+        margin: 0.5rem auto 1.5rem auto; /* Adjusted margins */
+    }
+    
+    .hero .sub-info {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.8);
+        margin-top: 1rem;
+    }
+
+    /* Call-to-Action Button */
+    .cta-button {
+        display: inline-block;
+        background-color: var(--white); 
+        color: var(--primary-color);
+        padding: 14px 35px;
+        text-decoration: none;
+        border-radius: 50px; 
+        font-size: 1.1rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        border: 2px solid transparent; 
+    }
+
+    .cta-button:hover {
+        background-color: transparent;
+        color: var(--white);
+        border: 2px solid var(--white);
+        transform: translateY(-3px);
+    }
+    
+    /* Feature List (Services, Why Us) - Using Grid */
+    .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+        gap: 30px; 
+    }
+
+    .feature-card {
+        background-color: var(--white);
+        padding: 30px;
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .feature-card:hover {
+         transform: translateY(-5px);
+         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .feature-card .icon {
+        font-size: 2.5rem; 
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        line-height: 1;
+    }
+    
+    .feature-card h3 { 
+         font-size: 1.3rem;
+         margin-bottom: 0.5rem;
+         color: var(--dark-text); 
+    }
+    
+    .feature-card p { 
+         font-size: 0.95rem;
+         color: #666;
+    }
+
+    /* Testimonials */
+    #testimonials {
+         background-color: var(--light-gray);
+    }
+
+    .testimonial-card {
+        background-color: var(--white);
+        padding: 30px;
+        margin-bottom: 25px;
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+        border-left: 5px solid var(--primary-color); 
+    }
+
+    .testimonial-card p {
+        font-style: italic;
+        color: #555;
+        margin-bottom: 1rem;
+        font-size: 1.05rem;
+    }
+    
+    .testimonial-card p::before { 
+        content: '“';
+        font-size: 1.5em;
+        color: var(--primary-color);
+        margin-right: 5px;
+        opacity: 0.6;
+    }
+
+    .testimonial-card cite {
+        display: block;
+        text-align: right;
+        margin-top: 10px;
+        font-weight: 600;
+        color: var(--dark-text);
+        font-style: normal;
+    }
+
+    /* Contact Section */
+     .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjust columns */
+        gap: 40px;
+        align-items: start;
+     }
+     
+     .clinic-image { /* Style for the clinic image */
+          width: 100%;
+          max-width: 450px; /* Control max size */
+          height: auto;
+          border-radius: var(--border-radius);
+          box-shadow: var(--box-shadow);
+          margin: 20px auto; /* Center if needed */
+          display: block;
+     }
+
+    .contact-info p {
+        margin: 15px 0;
+        font-size: 1.1rem;
+        line-height: 1.8;
+    }
+    
+    .contact-info p strong {
+         color: var(--primary-color);
+         font-weight: 600;
+    }
+
+    .contact-info a {
+         color: var(--primary-color);
+         text-decoration: none;
+         font-weight: 600;
+         transition: color 0.3s ease;
+    }
+    
+    .contact-info a:hover {
+        color: var(--secondary-color);
+    }
+
+    /* Google Map Embed */
+    .map-container {
+         position: relative;
+         padding-bottom: 75%; /* Adjust aspect ratio if needed */
+         height: 0;
+         overflow: hidden;
+         border-radius: var(--border-radius);
+         box-shadow: var(--box-shadow);
+         background: var(--medium-gray); /* Placeholder background */
+         min-height: 300px; /* Ensure minimum height */
+         width: 100%;
+    }
+
+    .map-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+
+    /* Final CTA Section */
+    #final-cta {
+        background-color: var(--primary-color);
+        color: var(--white);
+        text-align: center;
+        padding: 60px 0;
+    }
+
+    #final-cta h2 {
+         color: var(--white);
+         font-size: 2.2rem;
+    }
+    
+    #final-cta p {
+         color: rgba(255, 255, 255, 0.9);
+         margin-bottom: 2rem;
+    }
+
+    #final-cta .cta-button {
+        background-color: var(--white);
+        color: var(--primary-color);
+        border: 2px solid transparent;
+    }
+    
+    #final-cta .cta-button:hover {
+         background-color: transparent;
+         color: var(--white);
+         border: 2px solid var(--white);
+    }
+
+    /* Footer */
+    footer {
+        text-align: center;
+        padding: 30px 0;
+        margin-top: 0; 
+        background-color: var(--dark-text);
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+    }
+    
+    footer p {
+         margin-bottom: 0.5rem;
+         color: rgba(255, 255, 255, 0.7);
+    }
+    
+    footer a {
+        color: var(--white); 
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    
+    footer a:hover {
+         color: var(--primary-color); 
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 992px) {
+         /* Adjustments for tablets */
+    }
+
+    @media (max-width: 768px) {
+         /* Adjustments for smaller tablets/large phones */
+         .hero h1 { font-size: 2.2rem; }
+         .hero p { font-size: 1rem; }
+         .contact-grid { grid-template-columns: 1fr; } /* Stack contact info and map */
+         .clinic-image { max-width: 100%; order: -1; margin-bottom: 30px;} /* Move image above text on mobile */
+         .map-container { margin-top: 30px; }
+    }
+
+    @media (max-width: 576px) {
+         /* Adjustments for smaller phones */
+         body { font-size: 15px; }
+         h1 { font-size: 2rem; }
+         .hero { padding: 40px 0; }
+         .hero h1 { font-size: 2rem; }
+         .hero p { font-size: 0.95rem; }
+         h2 { font-size: 1.6rem; margin-bottom: 2rem; }
+         .cta-button { padding: 12px 28px; font-size: 1rem; }
+         .feature-grid { grid-template-columns: 1fr; } 
+         .feature-card { padding: 25px; }
+         .contact-info p { font-size: 1rem; }
+         #final-cta h2 { font-size: 1.7rem; }
+    }
+
+</style>
+
 </head>
-<body class="bg-gray-50 text-gray-800">
-    <!-- Floating Action Buttons -->
-    <div class="floating-buttons">
-        <a href="https://wa.me/60123456789" class="bg-green-500 hover:bg-green-600 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg transition-all duration-300 transform hover:scale-110">
-            <i class="fab fa-whatsapp text-2xl"></i>
-        </a>
-        <a href="tel:+6061234567" class="bg-blue-500 hover:bg-blue-600 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg transition-all duration-300 transform hover:scale-110">
-            <i class="fas fa-phone-alt text-xl"></i>
-        </a>
+<body>
+
+<!-- 1. Hero Section -->
+<header class="hero">
+    <div class="container">
+        <div class="hero-logo">
+             <!-- !!! REPLACE 'YOUR_LOGO_URL.png' with the actual URL to your logo file !!! -->
+            <img src="https://drive.google.com/thumbnail?id=1aSeuDpCHaMfKpVU-2k5K1ODUeJfkIk4c&sz=w1000" alt="KLINIK IHSAN & SITI Logo">
+        </div>
+        <h1>KLINIK IHSAN & SITI<br> Modern Family Care in Alor Gajah</h1>
+        <p>Open <strong>Every Single Day</strong> from 8:00 AM to 11:00 PM. Your health doesn't wait, and neither do we.</p>
+        <a href="tel:065562757" class="cta-button">Call 065562757 Now</a>
+        <p class="sub-info">Accepting New Patients | Walk-ins Welcome</p>
     </div>
+</header>
 
-    <!-- Navigation -->
-    <nav class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-3">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center">
-                    <a href="#" class="text-2xl font-bold text-blue-600 flex items-center">
-                        <i class="fas fa-heartbeat mr-2"></i>
-                        SereneCare
-                    </a>
-                </div>
-                
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="nav-link text-gray-800 hover:text-blue-600" data-i18n="nav.home">Home</a>
-                    <a href="#services" class="nav-link text-gray-800 hover:text-blue-600" data-i18n="nav.services">Services</a>
-                    <a href="#doctors" class="nav-link text-gray-800 hover:text-blue-600" data-i18n="nav.doctors">Our Doctors</a>
-                    <a href="#contact" class="nav-link text-gray-800 hover:text-blue-600" data-i18n="nav.contact">Contact</a>
-                    
-                    <div class="language-selector ml-4">
-                        <button class="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-gray-100 focus:outline-none">
-                            <img src="https://flagcdn.com/w20/gb.png" alt="English" class="language-flag">
-                            <span class="active-language" data-i18n="lang.en">EN</span>
-                            <i class="fas fa-chevron-down text-xs"></i>
-                        </button>
-                        <div class="language-dropdown mt-2">
-                            <div class="language-option" onclick="changeLanguage('en')">
-                                <img src="https://flagcdn.com/w20/gb.png" alt="English" class="language-flag">
-                                <span data-i18n="lang.en">English</span>
-                            </div>
-                            <div class="language-option" onclick="changeLanguage('ms')">
-                                <img src="https://flagcdn.com/w20/my.png" alt="Malay" class="language-flag">
-                                <span data-i18n="lang.ms">Bahasa Melayu</span>
-                            </div>
-                            <div class="language-option" onclick="changeLanguage('zh')">
-                                <img src="https://flagcdn.com/w20/cn.png" alt="Chinese" class="language-flag">
-                                <span data-i18n="lang.zh">中文</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="md:hidden flex items-center">
-                    <div class="language-selector mr-4">
-                        <button class="flex items-center space-x-1 px-2 py-1 rounded-lg hover:bg-gray-100 focus:outline-none">
-                            <img src="https://flagcdn.com/w20/gb.png" alt="English" class="language-flag">
-                            <i class="fas fa-chevron-down text-xs"></i>
-                        </button>
-                        <div class="language-dropdown mt-2">
-                            <div class="language-option" onclick="changeLanguage('en')">
-                                <img src="https://flagcdn.com/w20/gb.png" alt="English" class="language-flag">
-                                <span>English</span>
-                            </div>
-                            <div class="language-option" onclick="changeLanguage('ms')">
-                                <img src="https://flagcdn.com/w20/my.png" alt="Malay" class="language-flag">
-                                <span>BM</span>
-                            </div>
-                            <div class="language-option" onclick="changeLanguage('zh')">
-                                <img src="https://flagcdn.com/w20/cn.png" alt="Chinese" class="language-flag">
-                                <span>中文</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <button class="mobile-menu-button outline-none focus:outline-none">
-                        <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Mobile Menu -->
-            <div class="mobile-menu hidden md:hidden py-4">
-                <a href="#home" class="block py-2 text-gray-800 hover:text-blue-600" data-i18n="nav.home">Home</a>
-                <a href="#services" class="block py-2 text-gray-800 hover:text-blue-600" data-i18n="nav.services">Services</a>
-                <a href="#doctors" class="block py-2 text-gray-800 hover:text-blue-600" data-i18n="nav.doctors">Our Doctors</a>
-                <a href="#contact" class="block py-2 text-gray-800 hover:text-blue-600" data-i18n="nav.contact">Contact</a>
-            </div>
+<!-- 2. Our Services Section -->
+<section id="services">
+    <div class="container">
+        <h2>Comprehensive Healthcare Services</h2>
+        <div class="feature-grid">
+             <!-- Service Cards remain the same as previous version -->
+             <div class="feature-card"><div class="icon">🩺</div> <h3>General Checkups</h3><p>Routine physicals and health assessments for all ages.</p></div>
+             <div class="feature-card"><div class="icon">🤒</div> <h3>Sick Visits</h3><p>Prompt care for illnesses and acute conditions when you need it.</p></div>
+             <div class="feature-card"><div class="icon">💉</div> <h3>Vaccinations</h3><p>Keeping your family protected with essential immunizations.</p></div>
+             <div class="feature-card"><div class="icon">❤️</div> <h3>Chronic Disease Care</h3><p>Ongoing management for conditions like diabetes & hypertension.</p></div>
+             <div class="feature-card"><div class="icon">🛡️</div> <h3>Preventative Screenings</h3><p>Early detection and proactive health management.</p></div>
+             <div class="feature-card"><div class="icon">🩹</div> <h3>Minor Treatments</h3><p>Care for minor injuries, wounds, and common ailments.</p></div>
         </div>
-    </nav>
+    </div>
+</section>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-gradient text-white py-20 md:py-32">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-12 md:mb-0">
-                <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4" data-i18n="hero.title">Your Trusted Family Healthcare in Seremban</h1>
-                <p class="text-xl mb-8" data-i18n="hero.subtitle">Compassionate medical care for all ages. Our experienced team provides personalized treatment in a warm, welcoming environment.</p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="tel:+6061234567" class="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold text-lg text-center transition duration-300">
-                        <i class="fas fa-phone-alt mr-2"></i> <span data-i18n="hero.call">Call Now</span>
-                    </a>
-                    <a href="https://wa.me/60123456789" class="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-lg font-semibold text-lg text-center transition duration-300">
-                        <i class="fab fa-whatsapp mr-2"></i> <span data-i18n="hero.whatsapp">WhatsApp Us</span>
-                    </a>
-                </div>
-            </div>
-            <div class="md:w-1/2">
-                <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Doctor with patient" class="rounded-lg shadow-2xl">
-            </div>
+<!-- 3. Why Choose Sofra Clinic? Section -->
+<section id="why-us">
+     <div class="container">
+        <h2>Why Patients Choose Sofra Clinic</h2>
+         <div class="feature-grid">
+             <!-- Why Us Cards remain the same as previous version -->
+             <div class="feature-card"><div class="icon">⭐</div> <h3>Unbeatable Hours</h3><p><strong>Open 8 AM - 11 PM, 7 days a week</strong>, including weekends & public holidays (*Confirm Holidays*). Healthcare that fits your schedule.</p></div>
+             <div class="feature-card"><div class="icon">📍</div> <h3>Convenient Location</h3><p>Easily accessible right here in <strong>Alor Gajah, Melaka</strong>.</p></div>
+             <div class="feature-card"><div class="icon">❤️</div> <h3>Caring Team</h3><p>Experienced doctors and friendly staff dedicated to your well-being.</p></div>
+             <div class="feature-card"><div class="icon">👨‍👩‍👧‍👦</div> <h3>All Ages Welcome</h3><p>Providing comprehensive primary care for your entire family.</p></div>
+             <div class="feature-card"><div class="icon">📄</div> <h3>Insurance Friendly</h3><p>We accept a wide range of major insurance plans for your convenience.</p></div>
+             <div class="feature-card"><div class="icon">✅</div> <h3>New Patients</h3><p>We are currently welcoming new individuals and families to our practice.</p></div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Services Section -->
-    <section id="services" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4" data-i18n="services.title">Our Medical Services</h2>
-                <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="service-card bg-white rounded-lg shadow-md p-8 transition duration-300">
-                    <div class="text-blue-500 mb-4">
-                        <i class="fas fa-user-md text-4xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3" data-i18n="services.1.title">General Consultation</h3>
-                    <p class="text-gray-600" data-i18n="services.1.desc">Comprehensive health assessments and treatment for common illnesses and chronic conditions.</p>
-                </div>
-                
-                <!-- Service 2 -->
-                <div class="service-card bg-white rounded-lg shadow-md p-8 transition duration-300">
-                    <div class="text-blue-500 mb-4">
-                        <i class="fas fa-syringe text-4xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3" data-i18n="services.2.title">Vaccinations</h3>
-                    <p class="text-gray-600" data-i18n="services.2.desc">Complete immunization services for children and adults, including travel vaccinations.</p>
-                </div>
-                
-                <!-- Service 3 -->
-                <div class="service-card bg-white rounded-lg shadow-md p-8 transition duration-300">
-                    <div class="text-blue-500 mb-4">
-                        <i class="fas fa-heartbeat text-4xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3" data-i18n="services.3.title">Health Screening</h3>
-                    <p class="text-gray-600" data-i18n="services.3.desc">Preventive health packages tailored to different age groups and risk factors.</p>
-                </div>
-                
-                <!-- Service 4 -->
-                <div class="service-card bg-white rounded-lg shadow-md p-8 transition duration-300">
-                    <div class="text-blue-500 mb-4">
-                        <i class="fas fa-baby text-4xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3" data-i18n="services.4.title">Pediatric Care</h3>
-                    <p class="text-gray-600" data-i18n="services.4.desc">Specialized care for infants, children and adolescents with child-friendly approach.</p>
-                </div>
-                
-                <!-- Service 5 -->
-                <div class="service-card bg-white rounded-lg shadow-md p-8 transition duration-300">
-                    <div class="text-blue-500 mb-4">
-                        <i class="fas fa-band-aid text-4xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3" data-i18n="services.5.title">Minor Procedures</h3>
-                    <p class="text-gray-600" data-i18n="services.5.desc">Wound care, suturing, abscess drainage, and other minor surgical procedures.</p>
-                </div>
-                
-                <!-- Service 6 -->
-                <div class="service-card bg-white rounded-lg shadow-md p-8 transition duration-300">
-                    <div class="text-blue-500 mb-4">
-                        <i class="fas fa-pills text-4xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3" data-i18n="services.6.title">Chronic Disease Management</h3>
-                    <p class="text-gray-600" data-i18n="services.6.desc">Comprehensive care for diabetes, hypertension, asthma and other chronic conditions.</p>
-                </div>
-            </div>
+<!-- 4. Patient Testimonials Section -->
+<section id="testimonials">
+    <div class="container">
+        <h2>What Our Patients Say (From Google Reviews)</h2>
+         <div class="testimonial-card">
+             <!-- !!! GO TO GOOGLE MAPS, COPY A POSITIVE REVIEW, AND PASTE IT HERE !!! -->
+            <p>"Coming here for second opinion after being frustrated with other clinic… I really appreciate the care and explanation from doc. For those seek good treatment advice , Doc here is really professional ."</p>
+            <cite>- [Sabrilna MESMAN], Google Review</cite>
         </div>
-    </section>
-
-    <!-- Why Choose Us Section -->
-    <section class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4" data-i18n="why.title">Why Choose SereneCare Clinic</h2>
-                <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-lg shadow-md text-center">
-                    <div class="text-blue-500 text-5xl mb-4">
-                        <i class="fas fa-award"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3" data-i18n="why.1.title">Experienced Doctors</h3>
-                    <p class="text-gray-600" data-i18n="why.1.desc">Our team consists of highly qualified physicians with over 15 years of combined clinical experience.</p>
-                </div>
-                
-                <div class="bg-white p-8 rounded-lg shadow-md text-center">
-                    <div class="text-blue-500 text-5xl mb-4">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3" data-i18n="why.2.title">Minimal Waiting Time</h3>
-                    <p class="text-gray-600" data-i18n="why.2.desc">Efficient appointment system ensures you spend less time waiting and more time getting better.</p>
-                </div>
-                
-                <div class="bg-white p-8 rounded-lg shadow-md text-center">
-                    <div class="text-blue-500 text-5xl mb-4">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3" data-i18n="why.3.title">Patient-Centered Care</h3>
-                    <p class="text-gray-600" data-i18n="why.3.desc">We listen to your concerns and tailor treatment plans to your specific needs and preferences.</p>
-                </div>
-            </div>
+        <div class="testimonial-card">
+             <!-- !!! GO TO GOOGLE MAPS, COPY ANOTHER POSITIVE REVIEW, AND PASTE IT HERE !!! -->
+            <p>"Alhamdulilah sangat berpuasa hati dari segi layanan,masa dan penjelasan…Anak2 serasi dgn jenis ubat-ubatan di klinik ihsan & siti..Alhamdulilah dgn izin allah…
+"</p>
+             <cite>- [ainy airul], Google Review</cite>
         </div>
-    </section>
+        <!-- Add more testimonials if desired -->
+    </div>
+</section>
 
-    <!-- Our Doctors Section -->
-    <section id="doctors" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4" data-i18n="doctors.title">Meet Our Doctors</h2>
-                <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div class="flex flex-col md:flex-row items-center bg-gray-50 rounded-lg overflow-hidden shadow-md">
-                    <div class="md:w-1/3">
-                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Dr. Aminah Binti Ismail" class="w-full h-full object-cover">
-                    </div>
-                    <div class="md:w-2/3 p-6">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Dr. Aminah Binti Ismail</h3>
-                        <p class="text-blue-500 mb-3" data-i18n="doctors.1.specialty">Family Medicine Specialist</p>
-                        <p class="text-gray-600 mb-4">MBBS (UM), MMed (FamMed), Fellowship in Pediatric Care (UKM)</p>
-                        <p class="text-gray-600" data-i18n="doctors.1.desc">With over 12 years of experience in family medicine, Dr. Aminah provides compassionate care for patients of all ages, with special interest in women's health and pediatric care.</p>
-                    </div>
-                </div>
-                
-                <div class="flex flex-col md:flex-row items-center bg-gray-50 rounded-lg overflow-hidden shadow-md">
-                    <div class="md:w-1/3">
-                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Dr. Rajesh A/L Kumar" class="w-full h-full object-cover">
-                    </div>
-                    <div class="md:w-2/3 p-6">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Dr. Rajesh A/L Kumar</h3>
-                        <p class="text-blue-500 mb-3" data-i18n="doctors.2.specialty">General Practitioner</p>
-                        <p class="text-gray-600 mb-4">MBBS (IMU), Diploma in Occupational Health</p>
-                        <p class="text-gray-600" data-i18n="doctors.2.desc">Dr. Rajesh has 8 years of clinical experience with special interest in chronic disease management and occupational health. Fluent in English, Malay, and Tamil.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- 5. Visit Us or Call Section -->
+<section id="contact">
+    <div class="container">
+         <h2>Visit Us or Get In Touch</h2>
+         <div class="contact-grid">
+             <div class="contact-info">
+                 <h3>Clinic Information</h3>
+                 <p><strong>Address:</strong><br>
+                    No. 411, Lot 8667, Ag,<br>
+                    Kompleks Perniagaan, Pekan,<br>
+                    78000 Alor Gajah, Malacca, Malaysia
+                 </p>
+                 <p><strong>Phone:</strong> <a href="tel:065562757">065562757</a></p>
+                 <p><strong>Hours:</strong><br><strong>Open Every Day: 8:00 AM - 11:00 PM</strong></p>
+                 <p><strong>Parking:</strong> [Optional: Add parking info e.g., Parking available in the complex]</p>
+                  <a href="tel:065562757" class="cta-button" style="background-color: var(--primary-color); color: var(--white); margin-top: 15px;">Call Us Directly</a>
+                  
+                 
+             </div>
+             <div class="map-container">
+                 <!-- 
+                    **IMPORTANT**: Go to Google Maps, find Sofra Clinic, click "Share", then "Embed a map". 
+                    Copy the HTML code (starts with <iframe...) and paste it here, replacing this comment block and the placeholder iframe below.
+                 -->
+                 <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3986.3713632752983!2d102.2074828740158!3d2.3818273573921127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d1fd0a133f9589%3A0x36390fcb8cf38d!2sKlinik%20Ihsan%20%26%20Siti%20Sdn%20Bhd!5e0!3m2!1sen!2smy!4v1743609842090!5m2!1sen!2smy" 
+                    style="border:0; width: 100%; height: 100%;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                 </iframe>
+                 <!-- <p style="text-align:center; padding: 20px;">Map will load here...</p> -->
+             </div>
+         </div>
+    </div>
+</section>
 
-    <!-- Insurance Partners Section -->
-    <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4" data-i18n="insurance.title">Insurance Partners</h2>
-                <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
-                <p class="text-gray-600 mt-4" data-i18n="insurance.subtitle">We accept all major insurance panels and corporate clients</p>
-            </div>
-            
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 items-center">
-                <div class="bg-white p-6 rounded-lg shadow-md flex justify-center">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/AIA_logo.svg/1200px-AIA_logo.svg.png" alt="AIA" class="h-12 object-contain">
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md flex justify-center">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Prudential_logo.svg/1200px-Prudential_logo.svg.png" alt="Prudential" class="h-12 object-contain">
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md flex justify-center">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Great_Eastern_logo.svg/1200px-Great_Eastern_logo.svg.png" alt="Great Eastern" class="h-12 object-contain">
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md flex justify-center">
-                    <img src="https://www.mib.com.my/wp-content/uploads/2021/01/mib-logo.png" alt="Malaysia Insurance Berhad" class="h-12 object-contain">
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md flex justify-center">
-                    <img src="https://www.micare.com.my/wp-content/uploads/2020/04/micare-logo.png" alt="MiCare" class="h-12 object-contain">
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- 6. Final Call-to-Action -->
+<section id="final-cta">
+    <div class="container">
+        <h2>Ready to Prioritize Your Health?</h2>
+        <p>We're open late and ready to assist you. Call Sofra Clinic now!</p>
+        <a href="tel:065562757" class="cta-button">Call 065562757</a>
+    </div>
+</section>
 
-    <!-- Testimonials Section -->
-    <section class="py-20 bg-blue-600 text-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4" data-i18n="testimonials.title">What Our Patients Say</h2>
-                <div class="w-20 h-1 bg-white mx-auto"></div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="testimonial-card rounded-lg p-8 text-gray-800">
-                    <div class="flex items-center mb-4">
-                        <div class="text-yellow-400 mr-2">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <p class="mb-6 italic" data-i18n="testimonials.1.quote">"I've been bringing my family to SereneCare for years. The doctors are knowledgeable and take time to explain everything. The clinic is always clean and the staff are friendly."</p>
-                    <div class="flex items-center">
-                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Patient" class="w-12 h-12 rounded-full mr-4">
-                        <div>
-                            <h4 class="font-semibold">Puan Siti Nurhaliza</h4>
-                            <p class="text-sm text-gray-600" data-i18n="testimonials.1.position">Seremban Resident</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card rounded-lg p-8 text-gray-800">
-                    <div class="flex items-center mb-4">
-                        <div class="text-yellow-400 mr-2">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <p class="mb-6 italic" data-i18n="testimonials.2.quote">"As an expat, finding good healthcare in Malaysia was important to me. SereneCare has English-speaking doctors who understand my concerns. The WhatsApp appointment system is very convenient."</p>
-                    <div class="flex items-center">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Patient" class="w-12 h-12 rounded-full mr-4">
-                        <div>
-                            <h4 class="font-semibold">Mr. David Wilson</h4>
-                            <p class="text-sm text-gray-600" data-i18n="testimonials.2.position">Expatriate</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- 7. Footer -->
+<footer>
+    <div class="container">
+        <p>Copyright © <span id="currentYear"></span> Sofra Clinic. All Rights Reserved.</p>
+        <p><a href="#privacy-policy-link">Privacy Policy</a> | Designed with Care</p> 
+    </div>
+</footer>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4" data-i18n="contact.title">Contact Us</h2>
-                <div class="w-20 h-1 bg-blue-500 mx-auto"></div>
-            </div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <div>
-                    <h3 class="text-2xl font-semibold mb-6" data-i18n="contact.getintouch">Get In Touch</h3>
-                    
-                    <div class="mb-8">
-                        <div class="flex items-start mb-6">
-                            <div class="text-blue-500 mr-4 mt-1">
-                                <i class="fas fa-map-marker-alt text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-lg mb-1" data-i18n="contact.location">Our Location</h4>
-                                <p class="text-gray-600">No. 123, Jalan Dato Bandar Tunggal, 70000 Seremban, Negeri Sembilan</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start mb-6">
-                            <div class="text-blue-500 mr-4 mt-1">
-                                <i class="fas fa-phone-alt text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-lg mb-1" data-i18n="contact.phone">Phone Number</h4>
-                                <p class="text-gray-600">+606-123 4567</p>
-                                <p class="text-gray-600">+6012-345 6789 (Emergency)</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start mb-6">
-                            <div class="text-blue-500 mr-4 mt-1">
-                                <i class="fas fa-envelope text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-lg mb-1" data-i18n="contact.email">Email</h4>
-                                <p class="text-gray-600">info@serenecare.com</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="text-blue-500 mr-4 mt-1">
-                                <i class="fas fa-clock text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-lg mb-1" data-i18n="contact.hours">Operating Hours</h4>
-                                <p class="text-gray-600">Monday - Friday: 8:30 AM - 5:30 PM</p>
-                                <p class="text-gray-600">Saturday: 9:00 AM - 1:00 PM</p>
-                                <p class="text-gray-600">Sunday & Public Holidays: Closed</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="flex space-x-4">
-                        <a href="https://www.facebook.com" class="bg-blue-600 hover:bg-blue-700 text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://www.instagram.com" class="bg-pink-600 hover:bg-pink-700 text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://wa.me/60123456789" class="bg-green-500 hover:bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div>
-                    <h3 class="text-2xl font-semibold mb-6" data-i18n="contact.appointment">Request an Appointment</h3>
-                    <p class="text-gray-600 mb-6" data-i18n="contact.appointment_desc">Fill out the form below and our staff will contact you to confirm your appointment slot.</p>
-                    
-                    <form class="space-y-4">
-                        <div>
-                            <label for="name" class="block text-gray-700 font-medium mb-2" data-i18n="contact.form.name">Full Name</label>
-                            <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="" data-i18n-placeholder="contact.form.name_placeholder" required>
-                        </div>
-                        
-                        <div>
-                            <label for="phone" class="block text-gray-700 font-medium mb-2" data-i18n="contact.form.phone">Phone Number</label>
-                            <input type="tel" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="+60" required>
-                        </div>
-                        
-                        <div>
-                            <label for="email" class="block text-gray-700 font-medium mb-2" data-i18n="contact.form.email">Email (Optional)</label>
-                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="" data-i18n-placeholder="contact.form.email_placeholder">
-                        </div>
-                        
-                        <div>
-                            <label for="message" class="block text-gray-700 font-medium mb-2" data-i18n="contact.form.message">Your Message</label>
-                            <textarea id="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="" data-i18n-placeholder="contact.form.message_placeholder"></textarea>
-                        </div>
-                        
-                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300" data-i18n="contact.form.submit">
-                            Send Request
-                        </button>
-                    </form>
-                </div>
-            </div>
-            
-            <div class="mt-16">
-                <h3 class="text-2xl font-semibold mb-6" data-i18n="contact.location">Our Location</h3>
-                <div class="map-container rounded-lg shadow-lg">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.48619608346!2d101.9388603147577!3d2.7257229979999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cdc7c8a3a3f3a1%3A0x4e1a4e9d0b1b3b1a!2sSeremban%2C%20Negeri%20Sembilan!5e0!3m2!1sen!2smy!4v1622253692010!5m2!1sen!2smy" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-4 flex items-center">
-                        <i class="fas fa-heartbeat mr-2"></i> SereneCare
-                    </h3>
-                    <p class="text-gray-400" data-i18n="footer.desc">Your trusted family healthcare provider in Seremban, offering compassionate and comprehensive medical services.</p>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-semibold mb-4" data-i18n="footer.links">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#home" class="text-gray-400 hover:text-white transition duration-300" data-i18n="nav.home">Home</a></li>
-                        <li><a href="#services" class="text-gray-400 hover:text-white transition duration-300" data-i18n="nav.services">Services</a></li>
-                        <li><a href="#doctors" class="text-gray-400 hover:text-white transition duration-300" data-i18n="nav.doctors">Our Doctors</a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-white transition duration-300" data-i18n="nav.contact">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-semibold mb-4" data-i18n="footer.services">Services</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300" data-i18n="services.1.title">General Consultation</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300" data-i18n="services.2.title">Vaccinations</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300" data-i18n="services.3.title">Health Screening</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300" data-i18n="services.6.title">Chronic Disease Care</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-lg font-semibold mb-4" data-i18n="footer.contact">Contact Info</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li class="flex items-start">
-                            <i class="fas fa-map-marker-alt mt-1 mr-2"></i>
-                            <span>No. 123, Jalan Dato Bandar Tunggal, 70000 Seremban, Negeri Sembilan</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-phone-alt mr-2"></i>
-                            <span>+606-123 4567</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-envelope mr-2"></i>
-                            <span>info@serenecare.com</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 mb-4 md:mb-0">© 2023 SereneCare Clinic. All rights reserved.</p>
-                <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-white transition duration-300" data-i18n="footer.privacy">Privacy Policy</a>
-                    <a href="#" class="text-gray-400 hover:text-white transition duration-300" data-i18n="footer.terms">Terms of Service</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Language translations
-        const translations = {
-            en: {
-                // Navigation
-                "nav.home": "Home",
-                "nav.services": "Services",
-                "nav.doctors": "Our Doctors",
-                "nav.contact": "Contact",
-                
-                // Language selector
-                "lang.en": "English",
-                "lang.ms": "Bahasa Melayu",
-                "lang.zh": "中文",
-                
-                // Hero section
-                "hero.title": "Your Trusted Family Healthcare in Seremban",
-                "hero.subtitle": "Compassionate medical care for all ages. Our experienced team provides personalized treatment in a warm, welcoming environment.",
-                "hero.call": "Call Now",
-                "hero.whatsapp": "WhatsApp Us",
-                
-                // Services
-                "services.title": "Our Medical Services",
-                "services.1.title": "General Consultation",
-                "services.1.desc": "Comprehensive health assessments and treatment for common illnesses and chronic conditions.",
-                "services.2.title": "Vaccinations",
-                "services.2.desc": "Complete immunization services for children and adults, including travel vaccinations.",
-                "services.3.title": "Health Screening",
-                "services.3.desc": "Preventive health packages tailored to different age groups and risk factors.",
-                "services.4.title": "Pediatric Care",
-                "services.4.desc": "Specialized care for infants, children and adolescents with child-friendly approach.",
-                "services.5.title": "Minor Procedures",
-                "services.5.desc": "Wound care, suturing, abscess drainage, and other minor surgical procedures.",
-                "services.6.title": "Chronic Disease Management",
-                "services.6.desc": "Comprehensive care for diabetes, hypertension, asthma and other chronic conditions.",
-                
-                // Why Choose Us
-                "why.title": "Why Choose SereneCare Clinic",
-                "why.1.title": "Experienced Doctors",
-                "why.1.desc": "Our team consists of highly qualified physicians with over 15 years of combined clinical experience.",
-                "why.2.title": "Minimal Waiting Time",
-                "why.2.desc": "Efficient appointment system ensures you spend less time waiting and more time getting better.",
-                "why.3.title": "Patient-Centered Care",
-                "why.3.desc": "We listen to your concerns and tailor treatment plans to your specific needs and preferences.",
-                
-                // Doctors
-                "doctors.title": "Meet Our Doctors",
-                "doctors.1.specialty": "Family Medicine Specialist",
-                "doctors.1.desc": "With over 12 years of experience in family medicine, Dr. Aminah provides compassionate care for patients of all ages, with special interest in women's health and pediatric care.",
-                "doctors.2.specialty": "General Practitioner",
-                "doctors.2.desc": "Dr. Rajesh has 8 years of clinical experience with special interest in chronic disease management and occupational health. Fluent in English, Malay, and Tamil.",
-                
-                // Insurance
-                "insurance.title": "Insurance Partners",
-                "insurance.subtitle": "We accept all major insurance panels and corporate clients",
-                
-                // Testimonials
-                "testimonials.title": "What Our Patients Say",
-                "testimonials.1.quote": "I've been bringing my family to SereneCare for years. The doctors are knowledgeable and take time to explain everything. The clinic is always clean and the staff are friendly.",
-                "testimonials.1.position": "Seremban Resident",
-                "testimonials.2.quote": "As an expat, finding good healthcare in Malaysia was important to me. SereneCare has English-speaking doctors who understand my concerns. The WhatsApp appointment system is very convenient.",
-                "testimonials.2.position": "Expatriate",
-                
-                // Contact
-                "contact.title": "Contact Us",
-                "contact.getintouch": "Get In Touch",
-                "contact.location": "Our Location",
-                "contact.phone": "Phone Number",
-                "contact.email": "Email",
-                "contact.hours": "Operating Hours",
-                "contact.appointment": "Request an Appointment",
-                "contact.appointment_desc": "Fill out the form below and our staff will contact you to confirm your appointment slot.",
-                "contact.form.name": "Full Name",
-                "contact.form.name_placeholder": "Your Name",
-                "contact.form.phone": "Phone Number",
-                "contact.form.email": "Email (Optional)",
-                "contact.form.email_placeholder": "your@email.com",
-                "contact.form.message": "Your Message",
-                "contact.form.message_placeholder": "Preferred date/time and reason for visit",
-                "contact.form.submit": "Send Request",
-                
-                // Footer
-                "footer.desc": "Your trusted family healthcare provider in Seremban, offering compassionate and comprehensive medical services.",
-                "footer.links": "Quick Links",
-                "footer.services": "Services",
-                "footer.contact": "Contact Info",
-                "footer.privacy": "Privacy Policy",
-                "footer.terms": "Terms of Service"
-            },
-            ms: {
-                // Navigation
-                "nav.home": "Laman Utama",
-                "nav.services": "Perkhidmatan",
-                "nav.doctors": "Doktor Kami",
-                "nav.contact": "Hubungi",
-                
-                // Language selector
-                "lang.en": "English",
-                "lang.ms": "Bahasa Melayu",
-                "lang.zh": "中文",
-                
-                // Hero section
-                "hero.title": "Klinik Keluarga Terpercaya Anda di Seremban",
-                "hero.subtitle": "Penjagaan perubatan yang penyayang untuk semua peringkat umur. Pasukan kami yang berpengalaman memberikan rawatan peribadi dalam persekitaran yang mesra.",
-                "hero.call": "Hubungi Kami",
-                "hero.whatsapp": "WhatsApp Kami",
-                
-                // Services
-                "services.title": "Perkhidmatan Perubatan Kami",
-                "services.1.title": "Konsultasi Umum",
-                "services.1.desc": "Penilaian kesihatan menyeluruh dan rawatan untuk penyakit biasa dan keadaan kronik.",
-                "services.2.title": "Vaksinasi",
-                "services.2.desc": "Perkhidmatan imunisasi lengkap untuk kanak-kanak dan orang dewasa, termasuk vaksinasi perjalanan.",
-                "services.3.title": "Pemeriksaan Kesihatan",
-                "services.3.desc": "Pakej kesihatan pencegahan yang disesuaikan untuk kumpulan umur dan faktor risiko yang berbeza.",
-                "services.4.title": "Penjagaan Pediatrik",
-                "services.4.desc": "Penjagaan khusus untuk bayi, kanak-kanak dan remaja dengan pendekatan mesra kanak-kanak.",
-                "services.5.title": "Prosedur Minor",
-                "services.5.desc": "Penjagaan luka, jahitan, saliran abses dan prosedur pembedahan kecil lain.",
-                "services.6.title": "Pengurusan Penyakit Kronik",
-                "services.6.desc": "Penjagaan menyeluruh untuk diabetes, hipertensi, asma dan keadaan kronik lain.",
-                
-                // Why Choose Us
-                "why.title": "Mengapa Pilih Klinik SereneCare",
-                "why.1.title": "Doktor Berpengalaman",
-                "why.1.desc": "Pasukan kami terdiri daripada doktor yang berkelayakan tinggi dengan lebih daripada 15 tahun pengalaman klinikal.",
-                "why.2.title": "Masa Menunggu Minimum",
-                "why.2.desc": "Sistem temujanji yang cekap memastikan anda menghabiskan lebih sedikit masa menunggu dan lebih banyak masa untuk pulih.",
-                "why.3.title": "Penjagaan Berpusatkan Pesakit",
-                "why.3.desc": "Kami mendengar kebimbangan anda dan menyesuaikan rancangan rawatan mengikut keperluan dan keutamaan khusus anda.",
-                
-                // Doctors
-                "doctors.title": "Berkenalan Dengan Doktor Kami",
-                "doctors.1.specialty": "Pakar Perubatan Keluarga",
-                "doctors.1.desc": "Dengan pengalaman lebih dari 12 tahun dalam perubatan keluarga, Dr. Aminah memberikan penjagaan yang penyayang untuk pesakit semua peringkat umur, dengan minat khusus dalam kesihatan wanita dan penjagaan pediatrik.",
-                "doctors.2.specialty": "Pengamal Am",
-                "doctors.2.desc": "Dr. Rajesh mempunyai 8 tahun pengalaman klinikal dengan minat khusus dalam pengurusan penyakit kronik dan kesihatan pekerjaan. Fasih dalam Bahasa Inggeris, Melayu dan Tamil.",
-                
-                // Insurance
-                "insurance.title": "Rakan Insurans",
-                "insurance.subtitle": "Kami menerima semua panel insurans utama dan pelanggan korporat",
-                
-                // Testimonials
-                "testimonials.title": "Apa Kata Pesakit Kami",
-                "testimonials.1.quote": "Saya telah membawa keluarga saya ke SereneCare selama bertahun-tahun. Doktor-doktor berpengetahuan dan mengambil masa untuk menerangkan segala-galanya. Klinik ini sentiasa bersih dan kakitangannya ramah.",
-                "testimonials.1.position": "Penduduk Seremban",
-                "testimonials.2.quote": "Sebagai ekspatriat, mencari penjagaan kesihatan yang baik di Malaysia adalah penting bagi saya. SereneCare mempunyai doktor yang berbahasa Inggeris yang memahami kebimbangan saya. Sistem temujanji WhatsApp sangat mudah.",
-                "testimonials.2.position": "Ekspatriat",
-                
-                // Contact
-                "contact.title": "Hubungi Kami",
-                "contact.getintouch": "Hubungi Kami",
-                "contact.location": "Lokasi Kami",
-                "contact.phone": "Nombor Telefon",
-                "contact.email": "Emel",
-                "contact.hours": "Waktu Operasi",
-                "contact.appointment": "Minta Temujanji",
-                "contact.appointment_desc": "Isi borang di bawah dan kakitangan kami akan menghubungi anda untuk mengesahkan slot temujanji anda.",
-                "contact.form.name": "Nama Penuh",
-                "contact.form.name_placeholder": "Nama Anda",
-                "contact.form.phone": "Nombor Telefon",
-                "contact.form.email": "Emel (Pilihan)",
-                "contact.form.email_placeholder": "emel@anda.com",
-                "contact.form.message": "Mesej Anda",
-                "contact.form.message_placeholder": "Tarikh/masa pilihan dan sebab lawatan",
-                "contact.form.submit": "Hantar Permintaan",
-                
-                // Footer
-                "footer.desc": "Pembekal penjagaan kesihatan keluarga yang dipercayai anda di Seremban, menawarkan perkhidmatan perubatan yang penyayang dan menyeluruh.",
-                "footer.links": "Pautan Pantas",
-                "footer.services": "Perkhidmatan",
-                "footer.contact": "Maklumat Hubungan",
-                "footer.privacy": "Dasar Privasi",
-                "footer.terms": "Terma Perkhidmatan"
-            },
-            zh: {
-                // Navigation
-                "nav.home": "首页",
-                "nav.services": "服务项目",
-                "nav.doctors": "我们的医生",
-                "nav.contact": "联系我们",
-                
-                // Language selector
-                "lang.en": "English",
-                "lang.ms": "Bahasa Melayu",
-                "lang.zh": "中文",
-                
-                // Hero section
-                "hero.title": "芙蓉值得信赖的家庭医疗中心",
-                "hero.subtitle": "为所有年龄段提供富有同情心的医疗服务。我们经验丰富的团队在温馨的环境中提供个性化治疗。",
-                "hero.call": "立即致电",
-                "hero.whatsapp": "WhatsApp咨询",
-                
-                // Services
-                "services.title": "我们的医疗服务",
-                "services.1.title": "普通门诊",
-                "services.1.desc": "全面健康评估和治疗常见疾病及慢性病。",
-                "services.2.title": "疫苗接种",
-                "services.2.desc": "为儿童和成人提供完整的免疫服务，包括旅行疫苗接种。",
-                "services.3.title": "健康检查",
-                "services.3.desc": "针对不同年龄组和风险因素量身定制的预防性健康套餐。",
-                "services.4.title": "儿科护理",
-                "services.4.desc": "采用儿童友好方式为婴儿、儿童和青少年提供专业护理。",
-                "services.5.title": "小型手术",
-                "services.5.desc": "伤口护理、缝合、脓肿引流和其他小型外科手术。",
-                "services.6.title": "慢性病管理",
-                "services.6.desc": "为糖尿病、高血压、哮喘和其他慢性病提供全面护理。",
-                
-                // Why Choose Us
-                "why.title": "为什么选择SereneCare诊所",
-                "why.1.title": "经验丰富的医生",
-                "why.1.desc": "我们的团队由高素质的医生组成，拥有超过15年的综合临床经验。",
-                "why.2.title": "最短等待时间",
-                "why.2.desc": "高效的预约系统确保您花更少时间等待，更多时间康复。",
-                "why.3.title": "以患者为中心",
-                "why.3.desc": "我们倾听您的担忧，并根据您的特定需求和偏好定制治疗方案。",
-                
-                // Doctors
-                "doctors.title": "认识我们的医生",
-                "doctors.1.specialty": "家庭医学专家",
-                "doctors.1.desc": "Aminah医生在家庭医学领域拥有超过12年的经验，为各年龄段患者提供富有同情心的护理，特别关注妇女健康和儿科护理。",
-                "doctors.2.specialty": "全科医生",
-                "doctors.2.desc": "Rajesh医生拥有8年临床经验，专注于慢性病管理和职业健康。精通英语、马来语和泰米尔语。",
-                
-                // Insurance
-                "insurance.title": "保险合作伙伴",
-                "insurance.subtitle": "我们接受所有主要保险面板和企业客户",
-                
-                // Testimonials
-                "testimonials.title": "患者评价",
-                "testimonials.1.quote": "多年来我一直带家人来SereneCare就诊。医生知识渊博，会花时间解释一切。诊所总是很干净，工作人员也很友好。",
-                "testimonials.1.position": "芙蓉居民",
-                "testimonials.2.quote": "作为外籍人士，在马来西亚找到好的医疗服务对我来说很重要。SereneCare有会说英语的医生能理解我的担忧。WhatsApp预约系统非常方便。",
-                "testimonials.2.position": "外籍人士",
-                
-                // Contact
-                "contact.title": "联系我们",
-                "contact.getintouch": "取得联系",
-                "contact.location": "我们的位置",
-                "contact.phone": "电话号码",
-                "contact.email": "电子邮件",
-                "contact.hours": "营业时间",
-                "contact.appointment": "预约请求",
-                "contact.appointment_desc": "填写下面的表格，我们的工作人员将与您联系确认您的预约时段。",
-                "contact.form.name": "全名",
-                "contact.form.name_placeholder": "您的姓名",
-                "contact.form.phone": "电话号码",
-                "contact.form.email": "电子邮件(可选)",
-                "contact.form.email_placeholder": "您的电子邮件",
-                "contact.form.message": "您的留言",
-                "contact.form.message_placeholder": "首选日期/时间和就诊原因",
-                "contact.form.submit": "发送请求",
-                
-                // Footer
-                "footer.desc": "您在芙蓉值得信赖的家庭医疗服务提供者，提供富有同情心和全面的医疗服务。",
-                "footer.links": "快速链接",
-                "footer.services": "服务项目",
-                "footer.contact": "联系信息",
-                "footer.privacy": "隐私政策",
-                "footer.terms": "服务条款"
-            }
-        };
-
-        // Change language function
-        function changeLanguage(lang) {
-            // Update all elements with data-i18n attribute
-            document.querySelectorAll('[data-i18n]').forEach(element => {
-                const key = element.getAttribute('data-i18n');
-                if (translations[lang] && translations[lang][key]) {
-                    element.textContent = translations[lang][key];
-                    
-                    // Add Chinese font class if language is Chinese
-                    if (lang === 'zh') {
-                        element.classList.add('chinese-font');
-                    } else {
-                        element.classList.remove('chinese-font');
-                    }
-                }
-            });
-            
-            // Update all placeholder texts
-            document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
-                const key = element.getAttribute('data-i18n-placeholder');
-                if (translations[lang] && translations[lang][key]) {
-                    element.setAttribute('placeholder', translations[lang][key]);
-                }
-            });
-            
-            // Update active language indicator
-            document.querySelectorAll('.language-option').forEach(option => {
-                option.classList.remove('active-language');
-            });
-            
-            // Update the active language in the dropdown button
-            const activeLangElement = document.querySelector(`.language-selector [onclick="changeLanguage('${lang}')"]`);
-            if (activeLangElement) {
-                const activeLangText = activeLangElement.querySelector('span');
-                if (activeLangText) {
-                    document.querySelector('.language-selector .active-language').textContent = 
-                        lang === 'en' ? 'EN' : 
-                        lang === 'ms' ? 'BM' : 
-                        '中文';
-                }
-            }
-            
-            // Set cookie or localStorage to remember language preference
-            localStorage.setItem('preferredLanguage', lang);
-        }
-
-        // Mobile menu toggle
-        const mobileMenuButton = document.querySelector('.mobile-menu-button');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            mobileMenu.classList.toggle('active');
-        });
-        
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                mobileMenu.classList.remove('active');
-            });
-        });
-        
-        // Form submission
-        const contactForm = document.querySelector('form');
-        if (contactForm) {
-            contactForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                
-                // Get form values
-                const name = document.getElementById('name').value;
-                const phone = document.getElementById('phone').value;
-                const email = document.getElementById('email').value;
-                const message = document.getElementById('message').value;
-                
-                // Get current language for alert message
-                const lang = localStorage.getItem('preferredLanguage') || 'en';
-                let alertMessage = '';
-                
-                if (lang === 'en') {
-                    alertMessage = `Thank you, ${name}! We have received your appointment request and will contact you shortly at ${phone}.`;
-                } else if (lang === 'ms') {
-                    alertMessage = `Terima kasih, ${name}! Kami telah menerima permintaan temujanji anda dan akan menghubungi anda tidak lama lagi di ${phone}.`;
-                } else if (lang === 'zh') {
-                    alertMessage = `感谢您，${name}！我们已收到您的预约请求，将很快通过${phone}与您联系。`;
-                }
-                
-                // Show alert
-                alert(alertMessage);
-                
-                // Reset form
-                contactForm.reset();
-            });
-        }
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                        mobileMenu.classList.remove('active');
-                    }
-                }
-            });
-        });
-        
-        // Initialize with preferred language or default to English
-        const preferredLanguage = localStorage.getItem('preferredLanguage') || 'en';
-        changeLanguage(preferredLanguage);
-    </script>
+<script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
